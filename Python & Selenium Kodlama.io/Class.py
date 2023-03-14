@@ -8,7 +8,7 @@ NewStudent1=Student("Kaan","18","Male")
 NewStudent2=Student("Çağlar","20","Male")
 NewStudent3=Student("Çağla","24","Female")
 #Kullanıcıdan veri alıp class eklenmesi
-NewStudentA=input("name:")
+NewStudentA=input("name:").capitalize # ismin ilk harfi büyütülür
 NewStudentB=input("age:")
 NewStudentC=input("gender:").capitalize() #ilk harf büyütülür
 NewStudent4=Student(NewStudentA,NewStudentB,NewStudentC)
