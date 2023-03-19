@@ -4,7 +4,7 @@ from time import sleep
 from selenium.webdriver.common.by import By
 
 class Test_sauce:
-    def test_invalid_login(self,username,password,hatatext):# username , password ve hatatext parametrelerini alıp kodu test eder.
+    def test_invalid_login(self,username,password,mistaketext):# username , password ve hatatext parametrelerini alıp kodu test eder.
         driver = webdriver.Chrome(ChromeDriverManager().install())
         driver.maximize_window()
         driver.get("https://www.saucedemo.com/")
@@ -20,7 +20,7 @@ class Test_sauce:
         sleep(2)
         loginbtn.click() #login butonuna tıklama işlemi
         errormessage = driver.find_element(By.XPATH,"//div[@class='error-message-container error']/h3")
-        testResult = errormessage.text==hatatext #hata mesajının hatatext ile aynı olup olmadıgını karşılaştırma işlemi
+        testResult = errormessage.text==mistaketext #hata mesajının hatatext ile aynı olup olmadıgını karşılaştırma işlemi
         print(f"TEST SONUCU: {testResult}  {errormessage.text}") # ekrana hata mesajını ve  sonucunu yazdırma  
         
         sleep(1000)
