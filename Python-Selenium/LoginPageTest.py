@@ -74,7 +74,13 @@ class Test():
         link2=driver.current_url
         if "https://the-internet.herokuapp.com/login"==link2:
              print("çikiş yapildi.") 
-                       
+
+            
+        message4=driver.find_element(By.ID,"flash").text
+        if "You logged out of the secure area!" in message4:
+            print(f"çikiş yapildi: {message4}")
+        else:
+            print("HATA ")              
 
 
         time.sleep(1000)
