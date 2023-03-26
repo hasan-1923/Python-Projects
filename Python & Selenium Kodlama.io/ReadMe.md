@@ -11,3 +11,4 @@
 6-)	@pytest.mark.dependency: Testler arasında bağımlılıklar belirlemek için kullanılır.
 
 7-)	@pytest.mark.usefixtures: Test fonksiyonlarına, belirli bir fixture'ı otomatik olarak eklemek için kullanılır.
+![Ekran görüntüsü 2023-03-26 232634](https://user-images.githubusercontent.com/116032319/227803426-82022f12-f30c-439c-830d-27e1cd19e7a7.png)
