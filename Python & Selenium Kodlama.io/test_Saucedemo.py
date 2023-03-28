@@ -8,6 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import pytest
 from pathlib import Path
 from datetime import date
+import time
 
 
 
@@ -183,5 +184,34 @@ class Test_Sauce:
     
         self.driver.save_screenshot(f"{self.folderPath}/test-LogOut.png")
         
+    def wait_for_window(self, timeout = 2):    #sayfanın aşagı kaydırılması
+        time.sleep(round(timeout / 1000))
+        wh_now = self.driver.window_handles
+        wh_then = self.vars["window_handles"]
+        if len(wh_now) > len(wh_then):
+            return set(wh_now).difference(set(wh_then)).pop()
+  
+    def test_linkedin_page(self): #giriş yapıldıktan sonra sayfanın aşağı kaydırıldınğında çıkan linkedin butonuna tıklanıp açılan sayfanın ekran görüntüsünü almak
+    
+        self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"username\"]").click()
+        self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"username\"]").send_keys("standard_user")
+        self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"password\"]").click()
+        self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"password\"]").send_keys("secret_sauce")
+        self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"login-button\"]").click()
+        self.driver.execute_script("window.scrollTo(0,500)")
+        WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.CSS_SELECTOR, "#page_wrapper > footer > ul > li.social_linkedin > a")))
+        linkedin=self.driver.find_element(By.CSS_SELECTOR, "#page_wrapper > footer > ul > li.social_linkedin > a")
+        
+        linkedin.click()
+        p = self.driver.current_window_handle
+        parent = self.driver.window_handles[0]
+        chld = self.driver.window_handles[1]
+        self.driver.switch_to.window(chld)
 
+        time.sleep(5)
+        
+        self.driver.save_screenshot(f"{self.folderPath}/test-linkedin-page-open.png")
+        time.sleep(2)
+        
+        
 
