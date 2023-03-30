@@ -30,9 +30,7 @@ class Test__PizzaOrder:
         misir=self.driver.find_element(By.XPATH,"(//input[@name='topping'])[4]")
 
         
-        print(orta_Boy.is_selected())
-        print(mantar.is_selected())
-        print(misir.is_selected())
+        
         orta_Boy.click()
         mantar.click()
         misir.click()
