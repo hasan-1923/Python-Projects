@@ -1,14 +1,17 @@
-#ModelS Page Open
+#Model-S
 import time
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from pathlib import Path
+from datetime import date
 
 modelS="Model S"
 class TestTestmodels:
   def __init__(self,driver):
     self.driver = driver
+    self.folderPath = str(date.today())
+    Path(self.folderPath).mkdir(exist_ok=True)
     
   def test_testmodelS(self):
     
@@ -22,4 +25,6 @@ class TestTestmodels:
     Url=self.driver.current_url
     assert "https://www.tesla.com/tr_tr/models"==Url  #Url ile sayfa doğrulama
     time.sleep(2)
+    self.driver.save_screenshot(f"{self.folderPath}/test-Model-S.png")
+    time.sleep(1)
   
