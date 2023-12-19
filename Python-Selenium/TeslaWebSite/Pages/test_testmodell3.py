@@ -6,7 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from pathlib import Path
 from datetime import date
 
-model3="Öğren"
+E="Öğren"
 
 class TestTestmodell3:
   def __init__(self,driver):
@@ -19,7 +19,7 @@ class TestTestmodell3:
     #time.sleep(2)
     self.driver.find_element(By.CSS_SELECTOR, "#dx-nav-item--vehicles > .tds-site-nav-item-text").click()
     time.sleep(2)
-    self.driver.find_element(By.LINK_TEXT, model3).click()
+    self.driver.find_element(By.LINK_TEXT, E).click()
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".tcl-hero__content-end")))
     Url=self.driver.current_url
     assert "https://www.tesla.com/tr_tr/model3"==Url #Url ile sayfa doğrulama
