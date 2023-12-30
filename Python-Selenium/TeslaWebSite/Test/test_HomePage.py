@@ -1,11 +1,11 @@
 #Tesla WebSite Open and Model Pages
 import pytest
-from Pages.test_cyberTruck   import TestCyberTruck
-from Pages.test_testRoadster import TestTestRoadster
-from Pages.test_testmodell3  import TestTestmodell3
-from Pages.test_testmodels   import TestTestmodels
-from Pages.test_testmodelx   import TestTestmodelx
-from Pages.test_testmodely   import TestTestmodely
+from Pages.test_cyberTruck    import TestCyberTruck
+from Pages.test_testRoadster  import TestTestRoadster
+from Pages.test_testmodell3   import TestTestmodell3
+from Pages.test_testmodels    import TestTestmodels
+from Pages.test_testmodelx    import TestTestmodelx
+from Pages.test_testmodely    import TestTestmodely
 from Pages.test_testpowerwall import TestTestpowerwall
 
 @pytest.mark.usefixtures("setup")
